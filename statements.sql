@@ -87,14 +87,28 @@ CREATE TABLE categorias(
 
 -- PASO 2
 -- Tu código aquí
-
+ALTER TABLE usuarios ADD COLUMN id_categoria INT;
+ALTER TABLE usuarios ADD FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria);
 
 -- PASO 3
 -- Tu código aquí
-
+UPDATE usuarios SET id_categoria = 1 WHERE id_usuario IN (1, 3, 5);
+UPDATE usuarios SET id_categoria = 2 WHERE id_usuario IN (7, 9,21);
+UPDATE usuarios SET id_categoria = 3 WHERE id_usuario IN (2, 4);
+UPDATE usuarios SET id_categoria = 4 WHERE id_usuario IN (6, 8, 10);
+UPDATE usuarios SET id_categoria = 5 WHERE id_usuario IN (11, 13);
+UPDATE usuarios SET id_categoria = 6 WHERE id_usuario IN (15, 17, 19);
+UPDATE usuarios SET id_categoria = 7 WHERE id_usuario IN (12);
+UPDATE usuarios SET id_categoria = 8 WHERE id_usuario IN (14, 16);
+UPDATE usuarios SET id_categoria = 9 WHERE id_usuario IN (18, 20);
 
 -- PASO 4
 -- Tu código aquí
+SELECT usuarios.id_usuario,usuarios.nombre,usuarios.apellido,usuarios.email,usuarios.edad,roles.nombre_rol,categorias.nombre_categoria
+FROM usuarios 
+JOIN roles ON usuarios.id_rol = roles.id_rol
+JOIN categorias ON usuarios.id_categoria = categorias.id_categoria;
+
 
 /* Relación tipo N:M */
 -- PASO 1
