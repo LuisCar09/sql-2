@@ -113,7 +113,13 @@ JOIN categorias ON usuarios.id_categoria = categorias.id_categoria;
 /* Relación tipo N:M */
 -- PASO 1
 -- Tu código aquí
-
+CREATE TABLE usuarios_categorias(
+	id_usuario_categoria INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    id_categoria INT NOT NULL,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuarios),
+    FOREIGN KEY (id_categorias) REFERENCES categorias(id_categoria)
+)
 
 -- PASO 2
 -- Tu código aquí
