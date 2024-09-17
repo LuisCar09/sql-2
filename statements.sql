@@ -123,7 +123,20 @@ CREATE TABLE usuarios_categorias(
 
 -- PASO 2
 -- Tu código aquí
-
+INSERT INTO usuarios_categorias (id_usuario, id_categoria) 
+VALUES
+(1, 1), (2, 3), (3, 1),
+(4, 3), (5, 1),
+(6, 4), (7, 2),
+(8, 4), (9, 2), (10, 4),
+(11, 5),(12, 7),(13, 5),
+(14, 8),(15, 6),(16, 6),
+(17, 6),(18, 9),(19, 6),
+(20, 6);
 
 -- PASO 3
 -- Tu código aquí
+SELECT usuarios.id_usuario,usuarios.nombre,usuarios.apellido,usuarios.email,usuarios.edad,roles.nombre_rol,categorias.nombre_categoria 
+FROM usuarios 
+JOIN roles ON usuarios.id_rol = roles.id_rol
+JOIN categorias ON usuarios.id_categoria = categorias.id_categoria; 
